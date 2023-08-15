@@ -1,0 +1,33 @@
+button {
+  background: linear-gradient(89deg, #e4efe7 0%, #617ebb 100%);
+  margin-left: 8px;
+  transition: all ease-in-out 300ms;
+  border: 0.2px solid #9eb6c3;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+}
+.searchline {
+  max-width: 90%;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  padding: 28px;
+  margin-top: 32px;
+  border-radius: 12px;
+  background-color: #b4c4d9;
+  opacity: 0.8;
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #b4c4d9 10px
+    ),
+    repeating-linear-gradient(#ebeeef55, #ebeeef);
+}
+
+@media only screen and (min-width: 769px) {
+  .searchline {
+    max-width: 50%;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .searchline {
+    max-width: 40%;
+  }
+}
