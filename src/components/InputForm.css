@@ -2,7 +2,7 @@ button {
   background: linear-gradient(89deg, #e4efe7 0%, #617ebb 100%);
   margin-left: 8px;
   transition: all ease-in-out 300ms;
-  border: 0.2px solid #9eb6c3;
+  border: 0.2px solid #536a77;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
 .searchline {
