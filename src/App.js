@@ -6,14 +6,18 @@ import Logo from "./components/Logo";
 import Rank from "./components/Rank";
 import InputForm from "./components/InputForm";
 import FaceRecognition from "./components/FaceRecognition";
+import SignIn from "./components/SignIn";
+import Register from "./components/Register";
 
 function App() {
   const [input, setInput] = useState("");
   const [box, setBox] = useState({});
+  const [route, setRoute] = useState("signin");
 
   const onInputChange = (event) => {
     setInput(event.target.value);
   };
+
   const calculateFaceLocation = (data) => {
     const clarifaiFace =
       data.outputs[0].data.regions[0].region_info.bounding_box;
@@ -23,25 +27,23 @@ function App() {
     return {
       leftCol: clarifaiFace.left_col * width,
       topRow: clarifaiFace.top_row * height,
-      rightCol: width - (clarifaiFace.right_col * width),
-      bottomRow: height - (clarifaiFace.bottom_row * height),
+      rightCol: width - clarifaiFace.right_col * width,
+      bottomRow: height - clarifaiFace.bottom_row * height,
     };
   };
-  
+
   const displayFaceBox = (box) => {
     setBox(box);
   };
 
   const onButtonSubmit = () => {
-    console.log("click");
-    const PAT = "10d1fe63eafb47ebbeb106d6850c9ef5";
+    const PAT = "ee6ae3e6775240099bf9d138ed18ef89";
     const USER_ID = "taniatos";
     const APP_ID = "visio-quest-app";
     const MODEL_ID = "face-detection";
 
     const returnClarifaiRequestOptions = (imageUrl) => {
       const IMAGE_URL = imageUrl;
-
       const requestOptions = {
         method: "POST",
         headers: {
@@ -65,7 +67,6 @@ function App() {
           ],
         }),
       };
-
       return requestOptions;
     };
 
@@ -73,26 +74,34 @@ function App() {
       `https://api.clarifai.com/v2/models/${MODEL_ID}/outputs`,
       returnClarifaiRequestOptions(input)
     )
-      .then((response) => response.json()) 
+      .then((response) => response.json())
       .then((data) => {
-        console.log(data); 
         displayFaceBox(calculateFaceLocation(data));
       })
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+      });
   };
 
   return (
     <div className="App">
       <ParticlesBg type="cobweb" num={80} bg={true} />
-      <Navigation />
-      <Logo />
-      <Rank />
-      <InputForm
-        onInputChange={onInputChange}
-        onButtonSubmit={onButtonSubmit}
-      />
-      <FaceRecognition imageUrl={input} box={box} />
+      <Navigation onRouteChange={setRoute} route={route} />
+      {route === "signin" ? (
+        <SignIn onRouteChange={setRoute} />
+      ) : route === "register" ? (
+        <Register onRouteChange={setRoute} />
+      ) : (
+        <>
+          <Logo />
+          <Rank />
+          <InputForm
+            onInputChange={onInputChange}
+            onButtonSubmit={onButtonSubmit}
+          />
+          <FaceRecognition imageUrl={input} box={box} />
+        </>
+      )}
     </div>
   );
 }
