@@ -1,8 +1,15 @@
 img {
-    margin-top: 32px;
-    margin-bottom: 100px;
-    max-width: 100%;
-    border-radius: 12px;
+  margin-top: 32px;
+  margin-bottom: 100px;
+  border-radius: 12px;
+}
+.bounding-box {
+  position: absolute;
+  box-shadow: 0 0 0 3px #b6e63d inset;
+  cursor: pointer;
+}
+.center.img-box {
+  position: relative;
 }
 
 @media only screen and (min-width: 769px) {
@@ -11,7 +18,7 @@ img {
   }
 }
 @media only screen and (min-width: 820px) {
-  .img-box  {
+  .img-box {
     max-width: 70%;
   }
 }
