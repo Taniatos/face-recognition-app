@@ -1,7 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SignIn.css";
 
-const Register = ({ onRouteChange }) => {
+export default function Register(props) {
+  const [userInput, setUserInput] = useState({
+    email: "",
+    password: "",
+    name: "",
+  });
+
+  const onNameChange = (event) => {
+    setUserInput({ ...userInput, name: event.target.value });
+  };
+
+  const onEmailChange = (event) => {
+    setUserInput({ ...userInput, email: event.target.value });
+  };
+
+  const onPasswordChange = (event) => {
+    setUserInput({ ...userInput, password: event.target.value });
+  };
+
+  const onSubmitSignIn = () => {
+    fetch("http://localhost:3000/register", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(userInput),
+    })
+      .then((response) => response.json())
+      .then((user) => {
+        if (user) {
+          props.loadUser(user);
+          props.onRouteChange("home");
+        }
+      });
+  };
+
   return (
     <article className="article br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-4 center">
       <main className="pa4 black-80">
@@ -17,6 +50,7 @@ const Register = ({ onRouteChange }) => {
                 type="text"
                 name="name"
                 id="name"
+                onChange={onNameChange}
               />
               <label className="db fw6 lh-copy f6" htmlFor="email-address">
                 Email
@@ -26,6 +60,7 @@ const Register = ({ onRouteChange }) => {
                 type="email"
                 name="email-address"
                 id="email-address"
+                onChange={onEmailChange}
               />
             </div>
             <div className="mv3">
@@ -37,12 +72,13 @@ const Register = ({ onRouteChange }) => {
                 type="password"
                 name="password"
                 id="password"
+                onChange={onPasswordChange}
               />
             </div>
           </fieldset>
           <div className="center">
             <input
-              onClick={() => onRouteChange("home")}
+              onClick={onSubmitSignIn}
               className="signin-btn b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib w-100"
               type="submit"
               value="Register"
@@ -52,6 +88,4 @@ const Register = ({ onRouteChange }) => {
       </main>
     </article>
   );
-};
-
-export default Register;
+}
