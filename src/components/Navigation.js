@@ -7,7 +7,7 @@ const Navigation = ({ onRouteChange, route }) => {
       <nav style={{ display: "flex", justifyContent: "flex-end" }}>
         <p
           onClick={() => onRouteChange("signin")}
-          className="f3 link dim black underline-hover pa3 pointer"
+          className="f4 link dim black underline-hover pa3 pointer"
         >
           Sign out
         </p>
@@ -18,13 +18,13 @@ const Navigation = ({ onRouteChange, route }) => {
       <nav style={{ display: "flex", justifyContent: "flex-end" }}>
         <p
           onClick={() => onRouteChange("signin")}
-          className="f3 link dim black underline-hover pa3 pointer"
+          className="f4 link dim black underline-hover pa3 pointer"
         >
           Sign in
         </p>
         <p
           onClick={() => onRouteChange("register")}
-          className="f3 link dim black underline-hover pa3 pointer"
+          className="f4 link dim black underline-hover pa3 pointer"
         >
           Register
         </p>
