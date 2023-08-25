@@ -20,6 +20,9 @@ button {
     ),
     repeating-linear-gradient(#ebeeef55, #ebeeef);
 }
+.input-descr {
+  color: #486197;
+}
 @media only screen and (max-width: 500px) {
   #btnDetect {
     display: none;

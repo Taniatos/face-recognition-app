@@ -4,8 +4,8 @@ import "./InputForm.css";
 const InputForm = ({ onInputChange, onButtonSubmit }) => {
   return (
     <div>
-      <p className="f3 center">
-        {"Vision Quest App detects faces in your pictures. Give it a try!"}
+      <p className="f4 center input-descr">
+        {"VisioQuest App detects faces in your pictures. Give it a try!"}
       </p>
       <div className="center searchline">
         <input
