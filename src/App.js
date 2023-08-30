@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./App.css";
 import ParticlesBg from "particles-bg";
-import Navigation from "./components/Navigation";
-import Logo from "./components/Logo";
-import Rank from "./components/Rank"; 
-import InputForm from "./components/InputForm";
-import FaceRecognition from "./components/FaceRecognition";
-import SignIn from "./components/SignIn";
-import Register from "./components/Register";
+import Navigation from "./components/Navigation/Navigation";
+import Logo from "./components/Logo/Logo";
+import Rank from "./components/Rank/Rank"; 
+import InputForm from "./components/InputForm/InputForm";
+import FaceRecognition from "./components/FaceRecognition/FaceRecognition";
+import SignIn from "./components/SignIn/SignIn";
+import Register from "./components/Register/Register";
 
 function App() {
   const [input, setInput] = useState("");

@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css";
+import "./Navigation.css";
 
 const Navigation = ({ onRouteChange, route }) => {
   if (route === "home") {

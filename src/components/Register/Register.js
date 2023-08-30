@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./SignIn.css";
+import "./Register.css";
 
 export default function Register(props) {
   const [userInput, setUserInput] = useState({
