@@ -36,6 +36,10 @@ function App() {
     setInput(event.target.value);
   };
 
+  const displayFaceBox = (box) => {
+    setBox(box);
+  };
+
   const onButtonSubmit = () => {
     // Send the input image URL to your back-end
     fetch("http://localhost:3000/imageurl", {
