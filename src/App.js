@@ -8,6 +8,7 @@ import InputForm from "./components/InputForm/InputForm";
 import FaceRecognition from "./components/FaceRecognition/FaceRecognition";
 import SignIn from "./components/SignIn/SignIn";
 import Register from "./components/Register/Register";
+import { pat } from "./constants/apiKeys";
 
 function App() {
   const [input, setInput] = useState("");
@@ -55,7 +56,7 @@ function App() {
   };
 
   const onButtonSubmit = () => {
-    const PAT = "269ccf548ec042d1bb9113647e2f2491";
+    const PAT = { pat };
     const USER_ID = "taniatos";
     const APP_ID = "visio-quest-app";
     const MODEL_ID = "face-detection";
