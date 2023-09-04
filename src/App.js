@@ -57,7 +57,7 @@ function App() {
   };
 
   const onButtonSubmit = () => {
-    const PAT = { pat };
+    const PAT = pat;
     const USER_ID = "taniatos";
     const APP_ID = "visio-quest-app";
     const MODEL_ID = "face-detection";
