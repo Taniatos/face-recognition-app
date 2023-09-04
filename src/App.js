@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import LandingPage from "./components/LandingPage/LandingPage";
 import ParticlesBg from "particles-bg";
 import Navigation from "./components/Navigation/Navigation";
 import Logo from "./components/Logo/Logo";
@@ -13,7 +14,7 @@ import { pat } from "./constants/apiKeys";
 function App() {
   const [input, setInput] = useState("");
   const [box, setBox] = useState({});
-  const [route, setRoute] = useState("signin");
+  const [route, setRoute] = useState("landing");
 
   const [user, setUser] = useState({
     id: "",
@@ -119,7 +120,9 @@ function App() {
     <div className="App">
       <ParticlesBg type="cobweb" num={80} bg={true} />
       <Navigation onRouteChange={setRoute} route={route} />
-      {route === "signin" ? (
+      {route === "landing" ? (
+        <LandingPage onRouteChange={setRoute} />
+      ) : route === "signin" ? (
         <SignIn onRouteChange={setRoute} loadUser={loadUser} />
       ) : route === "register" ? (
         <Register onRouteChange={setRoute} loadUser={loadUser} />

@@ -23,6 +23,10 @@ button {
 .input-descr {
   color: #486197;
 }
+.input-box p {
+  text-align: center;
+  margin-top: 24px;
+}
 @media only screen and (max-width: 500px) {
   #btnDetect {
     display: none;

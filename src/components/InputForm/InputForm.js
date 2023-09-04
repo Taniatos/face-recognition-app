@@ -3,7 +3,7 @@ import "./InputForm.css";
 
 const InputForm = ({ onInputChange, onButtonSubmit }) => {
   return (
-    <div>
+    <div className="input-box">
       <p className="f4 center input-descr">
         {"VisioQuest App detects faces in your pictures. Give it a try!"}
       </p>
