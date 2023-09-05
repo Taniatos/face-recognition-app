@@ -12,9 +12,8 @@ const LandingPage = ({ onRouteChange }) => {
           images.
           <br />
           Simply paste the image URL into the search field, and witness the
-          magic of our face recognition technology in action.
+          magic of our face recognition technology in action. Explore it now!
         </p>
-        <p className="last-p">Experience the convenience today!</p>
         <div className="buttons">
           <button onClick={() => onRouteChange("signin")} className="btn-left">
             Sign In
