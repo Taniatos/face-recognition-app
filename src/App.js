@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import LandingPage from "./components/LandingPage/LandingPage";
 import ParticlesBg from "particles-bg";
+import LandingPage from "./components/LandingPage/LandingPage";
 import Navigation from "./components/Navigation/Navigation";
 import Logo from "./components/Logo/Logo";
 import Rank from "./components/Rank/Rank";
